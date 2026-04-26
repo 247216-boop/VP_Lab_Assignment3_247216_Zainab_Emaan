@@ -1,0 +1,14 @@
+.btn-certo {
+    background-color: #02033b; /* Dark blue from Figma */
+    color: white;
+    border-radius: 50px; /* Makes it rounded */
+    padding: 10px 25px;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-certo:hover {
+    background-color: #05075a;
+    color: white;
+}
