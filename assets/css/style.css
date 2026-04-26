@@ -12,3 +12,35 @@
     background-color: #05075a;
     color: white;
 }
+/* --- Hero Section Styles --- */
+.hero-bg {
+    background-color: #ffc247; /* Figma yellow */
+    padding: 60px 0;
+}
+
+h1 {
+    color: #02033b; /* Dark blue from the logo */
+    line-height: 1.2;
+}
+
+.lead {
+    color: #02033b;
+    font-size: 1.25rem;
+}
+
+/* --- Featured Logos Styles --- */
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.opacity-50 img {
+    filter: grayscale(100%); /* Makes partner logos look professional/grey */
+    max-width: 120px;
+}
+
+/* --- Android Button Outline --- */
+.btn-outline-dark {
+    border-radius: 50px;
+    border-width: 2px;
+    padding: 10px 25px;
+}
