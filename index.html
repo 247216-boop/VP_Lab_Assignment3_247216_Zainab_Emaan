@@ -3,126 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zainab's Premium Engineering Lab</title>
+    <title>The New York Collection | Harry Winston Inspired</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --glass: rgba(255, 255, 255, 0.8);
-            --dark-blue: #1a2a6c;
-        }
-        body {
-            background: #0f0c29;  /* fallback for old browsers */
-            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
-            font-family: 'Poppins', sans-serif;
-            color: white;
-        }
-        .hero-section {
-            padding: 100px 0 60px;
-            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-        .hero-content { position: relative; z-index: 2; }
+        /* Luxury Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap');
 
-        .project-card {
-            background: var(--glass);
-            border: none;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
+        body, html {
             height: 100%;
-            color: #333;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
         }
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+
+        /* Moving Scene Container */
+        .hero-video-container {
+            position: relative;
+            height: 100vh; /* Full Screen Height */
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .card-img-top {
-            height: 180px;
-            object-fit: cover;
-            filter: brightness(0.9);
-        }
-        .btn-primary {
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-        }
-        .badge-id {
+
+        /* Background Video/Image that moves */
+        #bg-video {
             position: absolute;
-            top: 10px; left: 10px;
-            background: rgba(0,0,0,0.7);
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            /* "Moving scene" effect using slow zoom animation */
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: translate(-50%, -50%) scale(1); }
+            to { transform: translate(-50%, -50%) scale(1.15); }
+        }
+
+        /* Elegant Overlay */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Dims the video slightly */
+        }
+
+        /* Text Styling (Harry Winston Style) */
+        .content {
+            position: relative;
             color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 12px;
+            text-align: center;
+            letter-spacing: 4px;
+        }
+
+        .content h1 {
+            font-size: 4rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .explore-btn {
+            margin-top: 30px;
+            padding: 12px 35px;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.5s;
+        }
+
+        .explore-btn:hover {
+            background: white;
+            color: black;
         }
     </style>
 </head>
 <body>
 
-<section class="hero-section text-center">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-        <h1 class="display-2 fw-bold">ZAINAB EMAAN</h1>
-        <p class="fs-4 text-info">Future Software Engineer | 20 Lab Projects</p>
-        <hr class="w-25 mx-auto border-info border-3">
+    <div class="hero-video-container">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&q=80" id="bg-video" alt="Luxury Background">
+        
+        <div class="overlay"></div>
+
+        <div class="content">
+            <p>High Jewelry</p>
+            <h1>The New York Collection</h1>
+            <button class="explore-btn">Discover the Collection</button>
+        </div>
     </div>
-</section>
-
-<div class="container my-5">
-    <div class="row g-4" id="projectGrid"></div>
-</div>
-
-<script>
-    const projects = [
-        { name: "Registration Form", img: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?w=500&q=80" },
-        { name: "Profile Dashboard", img: "https://images.unsplash.com/photo-1551288049-bbbda546697c?w=500&q=80" },
-        { name: "Modern Hero", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&q=80" },
-        { name: "Vertical Tabs", img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500&q=80" },
-        { name: "Toast Notifications", img: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&q=80" },
-        { name: "Offcanvas Sidebar", img: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&q=80" },
-        { name: "Table Pagination", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" },
-        { name: "Advanced Mega Nav", img: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=500&q=80" },
-        { name: "Floating Chat", img: "https://images.unsplash.com/photo-1577563906417-45a11b3f9f7c?w=500&q=80" },
-        { name: "Vertical Timeline", img: "https://images.unsplash.com/photo-1506485338023-6ce5f36692df?w=500&q=80" },
-        { name: "Multi-step Form", img: "https://images.unsplash.com/photo-1454165833d67-0e1a698482b1?w=500&q=80" },
-        { name: "E-commerce Gallery", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&q=80" },
-        { name: "Analytics Charts", img: "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=500&q=80" },
-        { name: "User Profile Card", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" },
-        { name: "Pricing Tables", img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=500&q=80" },
-        { name: "Login Modal", img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&q=80" },
-        { name: "Search Filter", img: "https://images.unsplash.com/photo-1502945015378-0e28404936d4?w=500&q=80" },
-        { name: "Dark Mode", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&q=80" },
-        { name: "Video Background", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=80" },
-        { name: "Final Master Dashboard", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80" }
-    ];
-
-    const grid = document.getElementById('projectGrid');
-    projects.forEach((p, i) => {
-        grid.innerHTML += `
-            <div class="col-md-6 col-lg-4">
-                <div class="card project-card shadow position-relative">
-                    <span class="badge-id">Lab ${i+1}</span>
-                    <img src="${p.img}" class="card-img-top" alt="project image">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">${p.name}</h5>
-                        <p class="card-text text-muted small">Professional UI implementation with clean code.</p>
-                        <a href="project${i+1}/index.html" class="btn btn-primary w-100">Launch Project</a>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-</script>
 
 </body>
 </html>
